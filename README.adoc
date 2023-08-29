@@ -1,0 +1,17 @@
+= terraform-free-s3-providers
+
+This repository holds various Terraform modules that can be used to create S3-compatible storages using free providers. It is mainly contemplated to be used within backup solutions.
+
+== Providers
+
+* [x] https://www.backblaze.com/cloud-storage[Backblaze B2 Cloud Storage]
+* [x] https://www.cloudflare.com/developer-platform/r2/[Cloudflare R2]
+* [x] https://www.oracle.com/cloud/storage/block-volumes/[Oracle Cloud Infrastructure Object Storage]
+* [x] https://www.scaleway.com/en/block-storage/[Scaleway Block Storage]
+* [x] https://tebi.io/[Tebi]
+
+== Features
+
+* [ ] Generate rclone configuration
+* [x] Generate similar outputs for all providers
+* [x] Access Token/IP-based based access control (write only)
