@@ -1,4 +1,4 @@
-name: Test, build, deploy
+name: Validate and lint
 on: [ push ]
 jobs:
   terraform-checks:
