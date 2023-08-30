@@ -1,6 +1,6 @@
 = terraform-free-s3-providers
 
-image::https://github.com/mmichaelb/terraform-free-s3-providers/actions/workflows/terraform_checks.yml/badge.svg[GitHub Actions terraform_checks Workflow Status]
+image::https://github.com/mmichaelb/terraform-free-s3-providers/actions/workflows/terraform.yml/badge.svg[GitHub Actions terraform Workflow Status]
 
 This repository holds various Terraform modules that can be used to create S3-compatible storages using free providers. It is mainly contemplated to be used within backup solutions.
 

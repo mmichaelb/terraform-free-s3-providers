@@ -1,0 +1,55 @@
+name: Validate and lint
+on: [ push ]
+jobs:
+  terraform-validate-and-lint:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        provider: [ backblaze, cloudflare, oracle_cloud, scaleway, tebi ]
+    env:
+      working-directory: providers/${{ matrix.provider }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - name: Install terraform
+        uses: hashicorp/setup-terraform@v2
+      - run: terraform version
+      - run: terraform init
+        working-directory: ${{ env.working-directory }}
+      - run: terraform validate
+        working-directory: ${{ env.working-directory }}
+      - name: Setup tflint
+        uses: terraform-linters/setup-tflint@v3
+        with:
+          tflint_version: "latest"
+      - run: tflint --version
+      - run: tflint --recursive
+        working-directory: ${{ env.working-directory }}
+  terraform-tests:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        provider: [ backblaze ]
+    env:
+      working-directory: providers/${{ matrix.provider }}/test
+      terraform-workspace: test-${{ github.run_id }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - name: Install terraform
+        uses: hashicorp/setup-terraform@v2
+      - run: terraform version
+      - run: terraform init
+        working-directory: ${{ env.working-directory }}
+      - run: terraform workspace new ${{ env.terraform-workspace }} || terraform workspace select ${{ env.terraform-workspace }}
+        working-directory: ${{ env.working-directory }}
+      - run: terraform plan
+        working-directory: ${{ env.working-directory }}
+      - run: terraform apply -auto-approve
+        working-directory: ${{ env.working-directory }}
+      - run: terraform destroy -auto-approve
+        if: always()
+        working-directory: ${{ env.working-directory }}
+      - run: terraform workspace delete ${{ env.terraform-workspace }}
+        if: always()
+        working-directory: ${{ env.working-directory }}
