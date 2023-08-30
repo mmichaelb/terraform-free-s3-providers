@@ -1,0 +1,27 @@
+== Cloudflare R2
+
+=== Usage
+
+The following code snippet can be used.
+
+[source,terraform]
+----
+module "cloudflare" {
+  source      = "github.com/mmichaelb/terraform-free-s3-providers/providers/cloudflare"
+  bucket_name = "my-bucket"
+  account_id = "<your account id>"
+}
+
+provider "cloudflare" {
+  api_token = "<your api key>"
+}
+----
+
+=== Credentials
+
+You have to create a new API token following this tutorial: https://developers.cloudflare.com/fundamentals/api/get-started/create-token/[]. You have to *select the template "Create Additional Tokens"* in order for the token to be usable. The token needs the following permissions:
+
+* User's Account - `Workers R2 Storage:Edit`
+* All users - `API Tokens:Edit`
+
+Furthermore, you need to retrieve the account id of your account (the account, the Bucket should be created in). See this tutorial for further assistance: https://developers.cloudflare.com/fundamentals/setup/find-account-and-zone-ids/
