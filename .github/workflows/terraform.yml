@@ -1,4 +1,4 @@
-name: Validate and lint
+name: 'Terraform: Validate, lint and test'
 on: [ push ]
 jobs:
   terraform-validate-and-lint:
@@ -48,6 +48,9 @@ jobs:
       - run: terraform apply -auto-approve
         working-directory: ${{ env.working-directory }}
       - run: terraform destroy -auto-approve
+        if: always()
+        working-directory: ${{ env.working-directory }}
+      - run: terraform workspace select default
         if: always()
         working-directory: ${{ env.working-directory }}
       - run: terraform workspace delete ${{ env.terraform-workspace }}
