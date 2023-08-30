@@ -6,8 +6,7 @@ variable "bucket_name" {
   type        = string
   description = "The name of the bucket to create."
 }
-variable "override_region" {
+variable "region" {
   type        = string
-  default     = "WEUR"
-  description = "The region to create the bucket in. Defaults to weur (Western Europe)."
+  description = "The region to create the bucket in."
 }

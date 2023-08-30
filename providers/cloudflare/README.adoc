@@ -9,7 +9,8 @@ The following code snippet can be used.
 module "cloudflare" {
   source      = "github.com/mmichaelb/terraform-free-s3-providers/providers/cloudflare"
   bucket_name = "my-bucket"
-  account_id = "<your account id>"
+  account_id  = "<your account id>"
+  region      = "WEUR"
 }
 
 provider "cloudflare" {
