@@ -1,4 +1,4 @@
-variable "master_application_key_id" {}
-variable "master_application_key" {}
-variable "bucket_name" {}
-
+variable "bucket_name" {
+  type = string
+  description = "The name of the bucket to create."
+}

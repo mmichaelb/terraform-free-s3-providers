@@ -1,0 +1,22 @@
+== Backblaze B2
+
+=== Usage
+
+The following code snippet can be used.
+
+[source,terraform]
+----
+module "backblaze_b2" {
+    source      = "github.com/mmichaelb/terraform-free-s3-providers/providers/backblaze"
+    bucket_name = "my-bucket"
+}
+
+provider "b2" {
+  application_key_id = "<master_application_key_id>"
+  application_key    = "<master_application_key>"
+}
+----
+
+=== Credentials
+
+The master application key (id) can be retrieved from the Backblaze B2 web interface. For more information see https://www.backblaze.com/docs/cloud-storage-create-and-manage-app-keys[].
