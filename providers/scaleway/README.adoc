@@ -1,0 +1,26 @@
+== Scaleway Object Storage
+
+=== Usage
+
+The following code snippet can be used.
+
+[source,terraform]
+----
+module "scaleway" {
+  source          = "github.com/mmichaelb/terraform-free-s3-providers/providers/scaleway"
+  bucket_name     = "my-bucket"
+  project_id      = "<your project id>"
+  region          = "fr-par"
+}
+
+provider "scaleway" {
+  access_key      = "<your access key>"
+  secret_key      = "<your secret key>"
+  project_id      = "<your project id>"
+  organization_id = "<your organization id>"
+}
+----
+
+=== Credentials
+
+You have to create a new API key following this tutorial: https://www.scaleway.com/en/docs/identity-and-access-management/iam/how-to/create-api-keys/ (either a global API key for your whole account or using a pre-defined application bearer). Following that, the project and organization id have to be retrieved (https://www.scaleway.com/en/docs/identity-and-access-management/iam/concepts/#organization-id and https://www.scaleway.com/en/docs/console/my-project/concepts/#project).
