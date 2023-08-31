@@ -11,19 +11,19 @@ It is mainly contemplated to be used within backup solutions.
 |===
 |Provider|Free Storage/Month|Supported
 
-|https://www.scaleway.com/en/block-storage/[Scaleway Object Storage] → link:https://github.com/mmichaelb/terraform-free-s3-providers/tree/main/providers/scaleway/README.adoc[📖]
+|https://www.scaleway.com/en/block-storage/[Scaleway Object Storage] → link:https://github.com/mmichaelb/terraform-free-s3-providers/tree/main/providers/scaleway/[📖]
 |75 GB
 |✅
 
-|https://www.backblaze.com/cloud-storage[Backblaze B2] → link:https://github.com/mmichaelb/terraform-free-s3-providers/tree/main/providers/backblaze/README.adoc[📖]
+|https://www.backblaze.com/cloud-storage[Backblaze B2] → link:https://github.com/mmichaelb/terraform-free-s3-providers/tree/main/providers/backblaze/[📖]
 |10 GB
 |✅
 
-|https://www.cloudflare.com/developer-platform/r2/[Cloudflare R2] → link:https://github.com/mmichaelb/terraform-free-s3-providers/tree/main/providers/cloudflare/README.adoc[📖]
+|https://www.cloudflare.com/developer-platform/r2/[Cloudflare R2] → link:https://github.com/mmichaelb/terraform-free-s3-providers/tree/main/providers/cloudflare/[📖]
 |10 GB
 |✅
 
-|https://www.oracle.com/cloud/storage/block-volumes/[Oracle Cloud Object Storage] → link:https://github.com/mmichaelb/terraform-free-s3-providers/tree/main/providers/oracle_cloud/README.adoc[📖]
+|https://www.oracle.com/cloud/storage/block-volumes/[Oracle Cloud Object Storage] → link:https://github.com/mmichaelb/terraform-free-s3-providers/tree/main/providers/oracle_cloud/[📖]
 |10 GB
 |✅
 
