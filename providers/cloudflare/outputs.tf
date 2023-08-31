@@ -7,7 +7,7 @@ output "endpoint_url" {
 }
 
 output "region" {
-  value = var.override_region
+  value = var.region
 }
 
 output "access_key_id" {
