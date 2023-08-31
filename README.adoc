@@ -2,18 +2,55 @@
 
 image::https://github.com/mmichaelb/terraform-free-s3-providers/actions/workflows/terraform.yml/badge.svg[GitHub Actions terraform Workflow Status]
 
-This repository holds various Terraform modules that can be used to create S3-compatible storages using free providers. It is mainly contemplated to be used within backup solutions.
+This repository holds various Terraform modules that can be used to create S3-compatible storages using free providers.
+It is mainly contemplated to be used within backup solutions.
 
 == Providers
 
-* [x] https://www.backblaze.com/cloud-storage[Backblaze B2 Cloud Storage]
-* [x] https://www.cloudflare.com/developer-platform/r2/[Cloudflare R2]
-* [x] https://www.oracle.com/cloud/storage/block-volumes/[Oracle Cloud Infrastructure Object Storage]
-* [x] https://www.scaleway.com/en/block-storage/[Scaleway Block Storage]
-* [x] https://tebi.io/[Tebi]
+[cols="4,2,1"]
+|===
+|Provider|Free Storage/Month|Supported
+
+|https://www.scaleway.com/en/block-storage/[Scaleway Object Storage] → link:/mmichaelb/terraform-free-s3-providers/tree/main/providers/scaleway/README.adoc[📖]
+|75 GB
+|✅
+
+|https://www.backblaze.com/cloud-storage[Backblaze B2] → link:/mmichaelb/terraform-free-s3-providers/tree/main/providers/backblaze/README.adoc[📖]
+|10 GB
+|✅
+
+|https://www.cloudflare.com/developer-platform/r2/[Cloudflare R2] → link:/mmichaelb/terraform-free-s3-providers/tree/main/providers/cloudflare/README.adoc[📖]
+|10 GB
+|✅
+
+|https://www.oracle.com/cloud/storage/block-volumes/[Oracle Cloud Object Storage] → link:/mmichaelb/terraform-free-s3-providers/tree/main/providers/oracle_cloud/README.adoc[📖]
+|10 GB
+|✅
+
+|https://tebi.io/[Tebi]
+|25 GB
+|❌
+
+|https://filebase.com/pricing/[Filebase]
+|5 GB
+|❌
+
+|https://tebi.io/[Spheron]
+|5 GB
+|❌
+
+|https://c2.synology.com/en-us/pricing/object-storage[Synology C2]
+|15 GB
+|❌
+
+|https://www.storj.io/pricing[Storj]
+|25 GB
+|❌
+|===
 
 == Features
 
 * [ ] Generate rclone configuration
+* [ ] Enable lifecycle rules where applicable
 * [x] Generate similar outputs for all providers
 * [x] Access Token/IP-based based access control (write only)
