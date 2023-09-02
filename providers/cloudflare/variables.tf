@@ -10,9 +10,3 @@ variable "region" {
   type        = string
   description = "The region to create the bucket in."
 }
-
-variable "override_retention_days" {
-  type = number
-  description = "The number of days to retain objects in the bucket."
-  default = -1
-}
