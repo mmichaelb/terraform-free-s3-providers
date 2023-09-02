@@ -5,6 +5,7 @@ module "secrets" {
 module "backblaze" {
   source = "../"
   bucket_name = "terraform-free-s3-providers-${terraform.workspace}"
+  override_retention_days = 1
 }
 
 provider "b2" {
