@@ -1,0 +1,32 @@
+== Oracle Cloud Object Storage
+
+=== Usage
+
+The following code snippet can be used.
+
+[source,terraform]
+----
+module "oracle" {
+  source         = "../"
+  bucket_name    = "my-bucket"
+  compartment_id = "<compartment-id>"
+  region         = "eu-frankfurt-1"
+}
+
+provider "oci" {
+  tenancy_ocid     = "<tenancy-ocid>"
+  user_ocid        = "<user-ocid>"
+  fingerprint      = "<api key fingerprint>"
+  private_key_path = "<path to api key private key>"
+  region           = "eu-frankfurt-1"
+}
+----
+
+=== Credentials
+
+You have to create an API key following this tutorial: https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformproviderconfiguration.htm. +
+Keep in mind that the user associated with the API key needs at least the following permissions (given using policies):
+
+* `Allow group <your group> to manage all-resources in compartment <your compartment name>`
+* `Allow group <your group> to manage users in tenancy where target.user.name = /<your bucket name>-*/`
+* `Allow group <your group> to manage groups in tenancy where target.group.name = /<your bucket name>-*/`

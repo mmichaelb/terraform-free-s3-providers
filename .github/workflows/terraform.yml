@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        provider: [ backblaze, cloudflare, oracle_cloud, scaleway, tebi ]
+        provider: [ backblaze, cloudflare, oracle_cloud, scaleway ]
     env:
       working-directory: providers/${{ matrix.provider }}
     steps:
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        provider: [ backblaze, cloudflare, scaleway ]
+        provider: [ backblaze, cloudflare, oracle_cloud, scaleway ]
     env:
       working-directory: providers/${{ matrix.provider }}/test
       terraform-workspace: test-${{ github.run_id }}
