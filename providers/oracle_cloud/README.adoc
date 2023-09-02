@@ -7,7 +7,7 @@ The following code snippet can be used.
 [source,terraform]
 ----
 module "oracle" {
-  source         = "../"
+  source      = "github.com/mmichaelb/terraform-free-s3-providers/providers/oracle_cloud"
   bucket_name    = "my-bucket"
   compartment_id = "<compartment-id>"
   region         = "eu-frankfurt-1"
