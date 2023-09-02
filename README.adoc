@@ -53,4 +53,5 @@ It is mainly contemplated to be used within backup solutions.
 * [ ] Generate rclone configuration
 * [ ] Enable lifecycle rules where applicable
 * [x] Generate similar outputs for all providers
-* [x] Access Token/IP-based based access control (write only)
+* [x] Access Token based access control (write only)
+* [x] Private ACL
