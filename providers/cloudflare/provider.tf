@@ -1,5 +1,5 @@
 locals {
-  endpoint_url = "https://${var.account_id}.r2.cloudflarestorage.com"
+  endpoint_url = "${var.account_id}.r2.cloudflarestorage.com"
 }
 
 terraform {
