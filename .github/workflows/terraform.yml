@@ -19,7 +19,7 @@ jobs:
       - run: terraform validate
         working-directory: ${{ env.working-directory }}
       - name: Setup tflint
-        uses: terraform-linters/setup-tflint@v3
+        uses: terraform-linters/setup-tflint@v4
         with:
           tflint_version: "latest"
       - run: tflint --version
