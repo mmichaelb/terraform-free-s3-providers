@@ -3,10 +3,11 @@ module "secrets" {
 }
 
 module "cloudflare" {
-  source = "../"
-  bucket_name = "terraform-free-s3-providers-${terraform.workspace}"
-  account_id = module.secrets.data["providers.cloudflare.account_id"]
-  region = "WEUR"
+  source             = "../"
+  bucket_name        = "terraform-free-s3-providers-${terraform.workspace}"
+  account_id         = module.secrets.data["providers.cloudflare.account_id"]
+  region             = "WEUR"
+  add_management_key = true
 }
 
 provider "cloudflare" {

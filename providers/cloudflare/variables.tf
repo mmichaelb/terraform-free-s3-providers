@@ -10,3 +10,9 @@ variable "region" {
   type        = string
   description = "The region to create the bucket in."
 }
+
+variable "add_management_key" {
+  type        = bool
+  description = "Whether to add a management key to manage the bucket (list and delete)."
+  default     = false
+}
