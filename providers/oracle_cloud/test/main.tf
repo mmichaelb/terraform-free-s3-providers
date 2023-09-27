@@ -3,10 +3,11 @@ module "secrets" {
 }
 
 module "oracle" {
-  source         = "../"
-  bucket_name    = "terraform-free-s3-providers-${terraform.workspace}"
-  compartment_id = module.secrets.data["providers.oracle.compartment_id"]
-  region         = "eu-frankfurt-1"
+  source             = "../"
+  bucket_name        = "terraform-free-s3-providers-${terraform.workspace}"
+  compartment_id     = module.secrets.data["providers.oracle.compartment_id"]
+  region             = "eu-frankfurt-1"
+  add_management_key = true
 }
 
 provider "oci" {

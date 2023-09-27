@@ -11,11 +11,11 @@ output "region" {
 }
 
 output "access_key_id" {
-  value = oci_identity_customer_secret_key.access.id
+  value = module.access_key.id
 }
 
 output "secret_access_key" {
-  value = oci_identity_customer_secret_key.access.key
+  value = module.access_key.key
 }
 
 output "bucket_name" {
@@ -24,4 +24,12 @@ output "bucket_name" {
 
 output "use_path_style" {
   value = true
+}
+
+output "management_access_key_id" {
+  value = var.add_management_key ? module.management_key[0].id : "<unset>"
+}
+
+output "management_secret_access_key" {
+  value = var.add_management_key ? module.management_key[0].key : "<unset>"
 }
