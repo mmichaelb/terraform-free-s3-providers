@@ -10,3 +10,9 @@ variable "region" {
   type        = string
   description = "The region in which the bucket will be created (see https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/guides/regions_and_zones for more information)."
 }
+
+variable "add_management_key" {
+  type        = bool
+  description = "Whether to add a management key to manage the bucket (list and delete)."
+  default     = false
+}

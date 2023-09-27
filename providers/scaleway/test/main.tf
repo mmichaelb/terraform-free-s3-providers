@@ -3,10 +3,11 @@ module "secrets" {
 }
 
 module "scaleway" {
-  source          = "../"
-  bucket_name     = "terraform-free-s3-providers-${terraform.workspace}"
-  project_id      = module.secrets.data["providers.scaleway.project_id"]
-  region          = "fr-par"
+  source             = "../"
+  bucket_name        = "terraform-free-s3-providers-${terraform.workspace}"
+  project_id         = module.secrets.data["providers.scaleway.project_id"]
+  region             = "fr-par"
+  add_management_key = true
 }
 
 provider "scaleway" {
