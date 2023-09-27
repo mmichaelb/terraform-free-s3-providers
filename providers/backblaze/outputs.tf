@@ -21,3 +21,11 @@ output "secret_access_key" {
 output "bucket_name" {
   value = b2_bucket.bucket.bucket_name
 }
+
+output "management_access_key_id" {
+  value = var.add_management_key ? b2_application_key.management[0].application_key_id : "<unset>"
+}
+
+output "management_secret_access_key" {
+  value = var.add_management_key ? b2_application_key.management[0].application_key : "<unset>"
+}
