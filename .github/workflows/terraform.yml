@@ -10,7 +10,7 @@ jobs:
       working-directory: providers/${{ matrix.provider }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: Install terraform
         uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1 # v2
       - run: terraform version
@@ -36,7 +36,7 @@ jobs:
       SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: Install terraform
         uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1 # v2
       - run: terraform version
