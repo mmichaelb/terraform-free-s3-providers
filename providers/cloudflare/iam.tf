@@ -2,11 +2,11 @@ data "cloudflare_api_token_permission_groups_list" "all" {}
 
 locals {
   workers_r2_storage_bucket_item_write = data.cloudflare_api_token_permission_groups_list.all.result[index(
-      data.cloudflare_api_token_permission_groups_list.all.result.*.name,
+      data.cloudflare_api_token_permission_groups_list.all.result.*["name"],
       "Workers R2 Storage Bucket Item Write"
     )]
   workers_r2_storage_bucket_item_read = data.cloudflare_api_token_permission_groups_list.all.result[index(
-      data.cloudflare_api_token_permission_groups_list.all.result.*.name,
+      data.cloudflare_api_token_permission_groups_list.all.result.*["name"],
       "Workers R2 Storage Bucket Item Read"
     )]
 }
