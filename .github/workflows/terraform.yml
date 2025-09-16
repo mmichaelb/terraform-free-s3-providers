@@ -2,7 +2,7 @@ name: 'Terraform: Validate, lint and test'
 on: [ push ]
 jobs:
   terraform-validate-and-lint:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         provider: [ backblaze, cloudflare, oracle_cloud, scaleway ]
@@ -26,7 +26,7 @@ jobs:
       - run: tflint --recursive
         working-directory: ${{ env.working-directory }}
   terraform-tests:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         provider: [ backblaze, cloudflare, oracle_cloud, scaleway ]
