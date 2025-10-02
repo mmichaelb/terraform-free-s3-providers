@@ -12,32 +12,7 @@ sections:
   hide: []
   show: []
 
-content: |-
-  {{ .Header }}
-
-  ## Requirements
-
-  {{ .Requirements }}
-
-  ## Providers
-
-  {{ .Providers }}
-
-  ## Modules
-
-  {{ .Modules }}
-
-  ## Resources
-
-  {{ .Resources }}
-
-  ## Inputs
-
-  {{ .Inputs }}
-
-  ## Outputs
-
-  {{ .Outputs }}
+content: ""
 
 output:
   file: "README.md"
