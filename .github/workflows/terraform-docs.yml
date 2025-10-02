@@ -28,7 +28,7 @@ jobs:
         uses: terraform-docs/gh-actions@e47bfa196e79fa50987ef391be236d9d97b0c786 # v1.2.0
         with:
           working-dir: providers/scaleway
-          output-file: README.md
+          output-file: README.adoc
           output-method: inject
           git-push: "false"
 
@@ -36,7 +36,7 @@ jobs:
         uses: terraform-docs/gh-actions@e47bfa196e79fa50987ef391be236d9d97b0c786 # v1.2.0
         with:
           working-dir: providers/cloudflare
-          output-file: README.md
+          output-file: README.adoc
           output-method: inject
           git-push: "false"
 
@@ -44,7 +44,7 @@ jobs:
         uses: terraform-docs/gh-actions@e47bfa196e79fa50987ef391be236d9d97b0c786 # v1.2.0
         with:
           working-dir: providers/backblaze
-          output-file: README.md
+          output-file: README.adoc
           output-method: inject
           git-push: "false"
 
@@ -52,7 +52,7 @@ jobs:
         uses: terraform-docs/gh-actions@e47bfa196e79fa50987ef391be236d9d97b0c786 # v1.2.0
         with:
           working-dir: providers/oracle_cloud
-          output-file: README.md
+          output-file: README.adoc
           output-method: inject
           git-push: "false"
 
@@ -72,6 +72,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add providers/*/README.md
+          git add providers/*/README.adoc
           git commit -m "docs: auto-generate terraform documentation"
           git push
