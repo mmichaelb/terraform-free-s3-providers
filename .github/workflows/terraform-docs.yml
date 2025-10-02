@@ -1,0 +1,77 @@
+name: 'Terraform Docs'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'providers/*/*.tf'
+      - '.terraform-docs.yml'
+  pull_request:
+    paths:
+      - 'providers/*/*.tf'
+      - '.terraform-docs.yml'
+
+jobs:
+  terraform-docs:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate terraform docs for scaleway
+        uses: terraform-docs/gh-actions@e47bfa196e79fa50987ef391be236d9d97b0c786 # v1.2.0
+        with:
+          working-dir: providers/scaleway
+          output-file: README.md
+          output-method: inject
+          git-push: "false"
+
+      - name: Generate terraform docs for cloudflare
+        uses: terraform-docs/gh-actions@e47bfa196e79fa50987ef391be236d9d97b0c786 # v1.2.0
+        with:
+          working-dir: providers/cloudflare
+          output-file: README.md
+          output-method: inject
+          git-push: "false"
+
+      - name: Generate terraform docs for backblaze
+        uses: terraform-docs/gh-actions@e47bfa196e79fa50987ef391be236d9d97b0c786 # v1.2.0
+        with:
+          working-dir: providers/backblaze
+          output-file: README.md
+          output-method: inject
+          git-push: "false"
+
+      - name: Generate terraform docs for oracle_cloud
+        uses: terraform-docs/gh-actions@e47bfa196e79fa50987ef391be236d9d97b0c786 # v1.2.0
+        with:
+          working-dir: providers/oracle_cloud
+          output-file: README.md
+          output-method: inject
+          git-push: "false"
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true' && github.event_name == 'push'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add providers/*/README.md
+          git commit -m "docs: auto-generate terraform documentation"
+          git push
