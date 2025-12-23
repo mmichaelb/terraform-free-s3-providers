@@ -24,3 +24,87 @@ provider "scaleway" {
 === Credentials
 
 You have to create a new API key following this tutorial: https://www.scaleway.com/en/docs/identity-and-access-management/iam/how-to/create-api-keys/ (either a global API key for your whole account or using a pre-defined application bearer). Following that, the project and organization id have to be retrieved (https://www.scaleway.com/en/docs/identity-and-access-management/iam/concepts/#organization-id and https://www.scaleway.com/en/docs/console/my-project/concepts/#project).
+
+<!-- BEGIN_TF_DOCS -->
+== Requirements
+
+[cols="a,a",options="header,autowidth"]
+|===
+|Name |Version
+|[[requirement_terraform]] <<requirement_terraform,terraform>> |>=1.0.0
+|[[requirement_scaleway]] <<requirement_scaleway,scaleway>> |>=2.0.0
+|===
+
+== Providers
+
+[cols="a,a",options="header,autowidth"]
+|===
+|Name |Version
+|[[provider_scaleway]] <<provider_scaleway,scaleway>> |>=2.0.0
+|===
+
+== Modules
+
+[cols="a,a,a",options="header,autowidth"]
+|===
+|Name |Source |Version
+|[[module_access_key]] <<module_access_key,access_key>> |./access_key |
+|[[module_management_key]] <<module_management_key,management_key>> |./access_key |
+|===
+
+== Resources
+
+[cols="a,a",options="header,autowidth"]
+|===
+|Name |Type
+|https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/resources/object_bucket[scaleway_object_bucket.bucket] |resource
+|https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/resources/object_bucket_acl[scaleway_object_bucket_acl.acl] |resource
+|===
+
+== Inputs
+
+[cols="a,a,a,a,a",options="header,autowidth"]
+|===
+|Name |Description |Type |Default |Required
+|[[input_add_management_key]] <<input_add_management_key,add_management_key>>
+|Whether to add a management key to manage the bucket (list and delete).
+|`bool`
+|`false`
+|no
+
+|[[input_bucket_name]] <<input_bucket_name,bucket_name>>
+|The name of the bucket to create.
+|`string`
+|n/a
+|yes
+
+|[[input_project_id]] <<input_project_id,project_id>>
+|The id of the project the infrastructure will be deployed in.
+|`string`
+|n/a
+|yes
+
+|[[input_region]] <<input_region,region>>
+|The region in which the bucket will be created (see https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/guides/regions_and_zones for more information).
+|`string`
+|n/a
+|yes
+
+|===
+
+== Outputs
+
+[cols="a,a",options="header,autowidth"]
+|===
+|Name |Description
+|[[output_access_key_id]] <<output_access_key_id,access_key_id>> |n/a
+|[[output_bucket_name]] <<output_bucket_name,bucket_name>> |n/a
+|[[output_endpoint_url]] <<output_endpoint_url,endpoint_url>> |n/a
+|[[output_management_access_key_id]] <<output_management_access_key_id,management_access_key_id>> |n/a
+|[[output_management_secret_access_key]] <<output_management_secret_access_key,management_secret_access_key>> |n/a
+|[[output_profile_name]] <<output_profile_name,profile_name>> |n/a
+|[[output_region]] <<output_region,region>> |n/a
+|[[output_secret_access_key]] <<output_secret_access_key,secret_access_key>> |n/a
+|[[output_storage_class]] <<output_storage_class,storage_class>> |n/a
+|===
+<!-- END_TF_DOCS -->
